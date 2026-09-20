@@ -1,13 +1,21 @@
-import CustomLink from "../ui/CustomLink";
-import Container from "./Container";
-import Logo from "./Logo";
+import CustomLink from '../ui/CustomLink';
+import Container from './Container';
+import Logo from './Logo';
 
 const Navbar = () => {
-    const links = <>
-        <li><CustomLink path="/">Home</CustomLink></li>
-        <li><CustomLink path="/ads">Listed Books</CustomLink></li>
-        <li><CustomLink path="/reads">Pages to Read</CustomLink></li>
-    </>
+    const links = (
+        <>
+            <li>
+                <CustomLink path="/">Home</CustomLink>
+            </li>
+            <li>
+                <CustomLink path="/listedBooks">Listed Books</CustomLink>
+            </li>
+            <li>
+                <CustomLink path="/reads">Pages to Read</CustomLink>
+            </li>
+        </>
+    );
     return (
         <div className="bg-base-100 shadow-sm sticky top-0 z-50">
             <Container>

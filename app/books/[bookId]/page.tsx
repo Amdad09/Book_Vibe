@@ -1,3 +1,5 @@
+
+import BookActions from '@/components/books/BookActions';
 import { getBook, getBooks } from '@/lib/api/books';
 import type { Book } from '@/types/Book';
 import Image from 'next/image';
@@ -14,6 +16,7 @@ export async function GenerateStaticParams() {
     }))
 }
 const BookDetailsPage = async ({ params }: BookDetailsProps) => {
+    
     const { bookId } = await params;
     const book: Book | undefined = await getBook(bookId);
     if (!book) throw new Error('Book not found');
@@ -134,15 +137,7 @@ const BookDetailsPage = async ({ params }: BookDetailsProps) => {
                         </div>
 
                         {/* Actions */}
-                        <div className="mt-8 flex flex-wrap gap-3">
-                            <button className="flex-1 rounded-lg bg-[#00d991] px-6 py-3 font-medium text-[#17181c] transition hover:bg-[#00c982] sm:flex-none">
-                                Read Book
-                            </button>
-
-                            <button className="flex-1 rounded-lg border border-[#00d991] px-6 py-3 font-medium text-[#00d991] transition hover:bg-[#00d991] hover:text-[#17181c] sm:flex-none">
-                                ♡ Add to Wishlist
-                            </button>
-                        </div>
+                        <BookActions book={ book} />
                     </div>
                 </div>
             </div>
